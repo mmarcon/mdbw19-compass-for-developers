@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}!</p>
+<ul>
+{{#each historicalWeather}}
+    <li><strong>{{toMonth this._id}}:</strong> Temperature {{truncateNumber this.avg_temperature_f 0}}F, Humidity: {{truncateNumber this.avg_humidity 0}}%</li>
+{{/each}}
+</ul>

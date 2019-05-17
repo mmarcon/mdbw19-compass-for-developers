@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+  <script src="/javascripts/skycons.js"></script>
+  <script>
+    const skycons = new Skycons({"color": "#222222"});
+    skycons.add("icon", '{{weather.icon}}');
+    skycons.play();
+  </script>
+</html>
