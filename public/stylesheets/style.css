@@ -29,4 +29,15 @@ strong {
   display: inline-block;
   padding: 3px 5px; }
 
+a {
+  text-decoration: none; }
+
+footer {
+  margin: 100px auto 0 auto;
+  width: 40%;
+  border-top: 1px solid #283741; }
+
+.attribution {
+  font-size: 50%; }
+
 /*# sourceMappingURL=style.css.map */
