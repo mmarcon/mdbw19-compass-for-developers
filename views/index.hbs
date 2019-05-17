@@ -3,7 +3,7 @@
     <h2>Compass Weather</h2>
 </header>
 <h3>New York City</h3>
-<p>{{weather.summary}}, {{truncateNumber weather.temperature 1}}F, {{weather.humidityPercentage}}%</p>
+<p>{{weather.summary}}, {{truncateNumber weather.temperature 1}}°, {{weather.humidityPercentage}}%</p>
 <p><canvas id="icon" width="192" height="192"></canvas></p>
 <p>
     <small>
@@ -14,7 +14,7 @@
         {{/if}}
         <br>
         The average conditions for this time of the day on {{toMonth month}} {{toOrdinal day}} are
-        <strong><span class="from-historical">{{truncateNumber averageWeather.0.avg_temperature_f 1}}F</span>,
+        <strong><span class="from-historical">{{truncateNumber averageWeather.0.avg_temperature_f 1}}°</span>,
             <span class="from-historical">{{truncateNumber averageWeather.0.avg_humidity 0}}%</span></strong>
     </small>
 </p>
