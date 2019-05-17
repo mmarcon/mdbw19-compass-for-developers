@@ -1,8 +1,25 @@
-body {
-  padding: 50px;
-  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif; }
+body, html {
+  margin: 0;
+  padding: 0; }
 
-a {
-  color: #00B7FF; }
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 24px;
+  background-color: #fff;
+  text-align: center; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500; }
+
+header {
+  background-color: #283741;
+  padding: 24px; }
+  header h1 {
+    color: #00AB4F; }
+  header h2 {
+    color: #ffffff; }
+
+strong {
+  font-weight: 500; }
 
 /*# sourceMappingURL=style.css.map */
