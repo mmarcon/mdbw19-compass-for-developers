@@ -1,4 +1,13 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}!</p>
-<p>{{weather.summary}}, {{weather.temperature}}F, {{weather.humidityPercentage}}%</p>
+<p>{{weather.summary}}, {{truncateNumber weather.temperature 1}}F, {{weather.humidityPercentage}}%</p>
 <p><canvas id="icon" width="128" height="128"></canvas></p>
+<p>
+    {{#if (gt weather.temperature averageWeather.0.avg_temperature_f)}}
+        It's warmer than usual
+    {{else if (lt weather.temperature averageWeather.0.avg_temperature_f)}}
+            It's colder than usual
+    {{/if}}
+</p>
+<p>Average conditions for this time of the day on {{toMonth month}} {{toOrdinal day}}:</p>
+<p>{{truncateNumber averageWeather.0.avg_temperature_f 1}}F, {{truncateNumber averageWeather.0.avg_humidity 0}}%</p>

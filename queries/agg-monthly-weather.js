@@ -1,4 +1,4 @@
-module.exports = [{
+module.exports = () => [{
     '$addFields': {
         'datetime_formatted': {
             '$toDate': '$datetime_formatted'

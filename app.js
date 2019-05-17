@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
-const {truncateNumber, toMonth} = require('./helpers/hbs-helpers');
+const hbsHelpers = require('./helpers/hbs-helpers');
 const sassMiddleware = require('node-sass-middleware');
 
 const indexRouter = require('./routes/index');
@@ -12,8 +12,7 @@ const historicalWeatherRouter = require('./routes/historical-weather');
 
 const app = express();
 
-hbs.registerHelper('truncateNumber', truncateNumber);
-hbs.registerHelper('toMonth', toMonth)
+hbs.registerHelper(hbsHelpers);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

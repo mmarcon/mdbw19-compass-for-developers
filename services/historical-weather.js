@@ -17,7 +17,18 @@ module.exports = {
             const db = mongoDbClient.db(dbName);
             const collection = db.collection(collName);
             return collection
-                .aggregate(require('../queries/agg-monthly-weather'), {maxTimeMS: 5000, allowDiskUse: true})
+                .aggregate(require('../queries/agg-monthly-weather')(), {maxTimeMS: 5000, allowDiskUse: true})
+                .toArray();
+        } catch (err) {
+            debug(err);
+        }
+    },
+    getAverage: (mongoDbClient, hour, day, month) => {
+        try {
+            const db = mongoDbClient.db(dbName);
+            const collection = db.collection(collName);
+            return collection
+                .aggregate(require('../queries/agg-monthly-weather-for-hour-day-month')(hour, day, month), {maxTimeMS: 5000, allowDiskUse: true})
                 .toArray();
         } catch (err) {
             debug(err);
