@@ -3,7 +3,7 @@
     <h2>Compass Weather</h2>
 </header>
 <h3>New York City</h3>
-<p>{{weather.summary}}, {{truncateNumber weather.temperature 1}}°, {{weather.humidityPercentage}}%</p>
+<p>{{weather.summary}} <span class="condition"><span class="wi wi-thermometer"></span>{{truncateNumber weather.temperature 1}}<span class="wi wi-fahrenheit"></span></span> <span class="condition"><span class="wi wi-humidity"></span>{{truncateNumber weather.humidityPercentage 1}}%</span></p>
 <p><canvas id="icon" width="192" height="192"></canvas></p>
 <p>
     <small>
@@ -14,10 +14,10 @@
         {{/if}}
         <br>
         The average conditions for this time of the day on {{toMonth month}} {{toOrdinal day}} are
-        <strong><span class="from-historical">{{truncateNumber averageWeather.0.avg_temperature_f 1}}°</span>,
-            <span class="from-historical">{{truncateNumber averageWeather.0.avg_humidity 0}}%</span></strong>
+        <strong><span class="from-historical condition"><span class="wi wi-thermometer"></span>{{truncateNumber averageWeather.0.avg_temperature_f 1}}<span class="wi wi-fahrenheit"></span></span>
+            <span class="from-historical condition"><span class="wi wi-humidity"></span>{{truncateNumber averageWeather.0.avg_humidity 0}}%</span></strong>
     </small>
 </p>
 <footer>
-    <small class="attribution"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></small>
+    <small class="attribution">Real-time weather <a href="https://darksky.net/poweredby/">powered by Dark Sky</a></small>
 </footer>
