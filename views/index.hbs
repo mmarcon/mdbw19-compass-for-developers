@@ -7,10 +7,12 @@
 <p><canvas id="icon" width="192" height="192"></canvas></p>
 <p>
     <small>
-        {{#if (gt weather.temperature averageWeather.0.avg_temperature_f)}}
+        {{#if (rgt weather.temperature averageWeather.0.avg_temperature_f)}}
         <strong>It's warmer than usual</strong>
-        {{else if (lt weather.temperature averageWeather.0.avg_temperature_f)}}
+        {{else if (rlt weather.temperature averageWeather.0.avg_temperature_f)}}
         <strong class="from-historical">It's colder than usual</strong>
+        {{else}}
+        <strong class="from-historical">Temperature is normal</strong>
         {{/if}}
         <br>
         The average conditions for this time of the day on {{toMonth month}} {{toOrdinal day}} are
