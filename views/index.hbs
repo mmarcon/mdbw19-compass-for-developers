@@ -8,7 +8,7 @@
 <p>
     <small>
         {{#if (rgt weather.temperature averageWeather.0.avg_temperature_f)}}
-        <strong>It's warmer than usual</strong>
+        <strong class="from-historical">It's warmer than usual</strong>
         {{else if (rlt weather.temperature averageWeather.0.avg_temperature_f)}}
         <strong class="from-historical">It's colder than usual</strong>
         {{else}}
