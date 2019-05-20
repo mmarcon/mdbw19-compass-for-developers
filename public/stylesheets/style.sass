@@ -47,3 +47,22 @@ footer
 
 .attribution
   font-size: 50%
+
+table
+  border-collapse: collapse
+  margin: 10px auto
+  tr
+    border-bottom: 1px solid rgb(40, 55, 65)
+    td
+      text-align: left
+      padding: 10px
+    &:last-child
+      border-bottom: 0
+    &.t-cold
+      background-color: #34e7e4
+    &.t-cool
+      background-color: #4bcffa
+    &.t-warm
+      background-color: #ffc048
+    &.t-hot
+      background-color: #ff5e57

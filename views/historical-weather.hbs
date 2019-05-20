@@ -1,7 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}!</p>
-<ul>
+<header>
+    <h1>{{title}}</h1>
+    <h2>Compass Weather</h2>
+</header>
+<h3>New York City Monthly Averages</h3>
+<table>
 {{#each historicalWeather}}
-    <li><strong>{{toMonth this._id}}:</strong> Temperature {{truncateNumber this.avg_temperature_f 0}}°, Humidity: {{truncateNumber this.avg_humidity 0}}%</li>
+    <tr class="t-{{temperature this.avg_temperature_f}}">
+        <td>{{toMonth this._id}}</td>
+        <td><span class="condition"><span class="wi wi-thermometer"></span> {{truncateNumber this.avg_temperature_f 0}}<span class="wi wi-fahrenheit"></span></span></td>
+        <td><span class="condition"><span class="wi wi-humidity"></span>{{truncateNumber this.avg_humidity 0}}%</span></td>
+    </tr>
 {{/each}}
-</ul>
+</table>

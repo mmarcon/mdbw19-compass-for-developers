@@ -1,6 +1,7 @@
 const debug = require('debug')('mdbw19-compass-for-developers:historical-weather');
 const dbName = 'mdbw19';
 const collName = 'nyc_weather_data';
+const viewNYCMonthlyAvgName = 'nyc_monthly_averages';
 
 module.exports = {
     get: (mongoDbClient) => {
@@ -12,12 +13,23 @@ module.exports = {
             debug(err);
         }
     },
-    getMonthlyAverages: (mongoDbClient) => {
+    getMonthlyAveragesWithAggregation: (mongoDbClient) => {
         try {
             const db = mongoDbClient.db(dbName);
             const collection = db.collection(collName);
             return collection
                 .aggregate(require('../queries/agg-monthly-weather')(), {maxTimeMS: 5000, allowDiskUse: true})
+                .toArray();
+        } catch (err) {
+            debug(err);
+        }
+    },
+    getMonthlyAveragesWithQuery: (mongoDbClient) => {
+        try {
+            const db = mongoDbClient.db(dbName);
+            const collection = db.collection(viewNYCMonthlyAvgName);
+            return collection
+                .find(require('../queries/query-monthly-averages')(), {maxTimeMS: 1000})
                 .toArray();
         } catch (err) {
             debug(err);
