@@ -1,6 +1,6 @@
 module.exports = () => [{
     '$addFields': {
-        'datetime_formatted': {
+        'datetime': {
             '$toDate': '$datetime'
         },
         'temperature_c': {
@@ -21,7 +21,7 @@ module.exports = () => [{
 }, {
     '$addFields': {
         'd_month': {
-            '$month': '$datetime_formatted'
+            '$month': '$datetime'
         }
     }
 }, {
