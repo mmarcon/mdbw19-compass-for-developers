@@ -17,10 +17,14 @@ At this point, run `npm start` or `npm run dev` and go to [localhost:3000](http:
 
 You should see a webpage similar to the image below.
 
-![real time vs historical weather](./assets/compass-weather.gif)
+<p align="center"> 
+    <img src="./assets/compass-weather.gif" alt="real time vs historical weather">
+</p>
 
 The real-time data is fetched from Darksky, the average weather conditions are calculated with an aggregation directly in MongoDB. During the session at MDBW we will see how to build and debug the correct pipeline in Compass.
 
 If you go to http://localhost:3000/historical-weather, you will see a summary of the monthly average temperatures.
 
-![monthly average weather conditions](./assets/compass-weather-historical.png)
+ <p align="center"> 
+    <img src="./assets/compass-weather-historical.png" alt="monthly average weather conditions">
+ </p>
