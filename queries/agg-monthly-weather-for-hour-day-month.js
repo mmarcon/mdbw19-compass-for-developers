@@ -1,4 +1,8 @@
 module.exports = (hour, day, month) => [{
+    $match: {
+        city: 'New York City'
+    }
+}, {
     $addFields: {
         datetime: {
             $toDate: '$datetime'

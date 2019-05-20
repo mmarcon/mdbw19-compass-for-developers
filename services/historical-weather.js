@@ -1,6 +1,6 @@
 const debug = require('debug')('mdbw19-compass-for-developers:historical-weather');
 const dbName = 'mdbw19';
-const collName = 'nyc_weather_data';
+const collName = 'weather_data';
 const viewNYCMonthlyAvgName = 'nyc_monthly_averages';
 
 module.exports = {
