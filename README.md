@@ -17,6 +17,6 @@ At this point, run `npm start` or `npm run dev` and go to [localhost:3000](http:
 
 You should see a webpage similar to the image below.
 
-![screenshot](./assets/screenshot.png)
+![screenshot](./assets/compass-weather.gif)
 
 The real-time data is fetched from Darksky, the average weather conditions are calculated with an aggregation directly in MongoDB. During the session at MDBW we will see how to build and debug the correct pipeline in Compass.
