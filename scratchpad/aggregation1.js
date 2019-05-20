@@ -1,4 +1,8 @@
 [{
+    $match: {
+        city: 'New York City'
+    }
+}, {
     $addFields: {
         temperature_c: {
             $subtract: [

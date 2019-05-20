@@ -11,7 +11,7 @@ After checking out the repository, run `npm install` to install the dependencies
 
 Copy `config.example.json` to `config.json` and add your secret key in there.
 
-Run MongoDB locally and with `mongoimport` import `data/nyc_weather_data.json` to a database named `mdbw19` into a collection named `nyc_weather_data`. The collection contains hourly weather observations for NYC from the beginning of 2012 almost to the end of 2017.
+Run MongoDB locally and with `mongoimport` import `data/weather_data.json` to a database named `mdbw19` into a collection named `weather_data`. The collection contains hourly weather observations for NYC and San Francisco from the beginning of 2012 almost to the end of 2017.
 
 At this point, run `npm start` or `npm run dev` and go to [localhost:3000](http://localhost:3000/).
 
