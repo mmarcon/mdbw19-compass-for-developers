@@ -9,6 +9,19 @@ const debug = require('debug')('mdbw19-compass-for-developers:server');
 const http = require('http');
 const MongoClient = require('mongodb').MongoClient;
 
+const connectToMongo = () => {
+  MongoClient
+  .connect(`mongodb://${process.env.MONGO_HOST || 'localhost'}:27017`, {useNewUrlParser: true, bufferMaxEntries: 0})
+  .then(client => {
+    debug('Connected to MongoDB');
+    app.locals.dbClient = client;
+  })
+  .catch(e => {
+    debug('Failed to connect to MongoDB. Trying again in 5 seconds.')
+    setTimeout(connectToMongo, 5000);
+  })
+};
+
 /**
  * Get port from environment and store in Express.
  */
@@ -26,15 +39,10 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-MongoClient
-  .connect('mongodb://localhost:27017', {useNewUrlParser: true})
-  .then(client => {
-    debug('Connected to MongoDB');
-    app.locals.dbClient = client;
-    server.listen(port);
-    server.on('error', onError);
-    server.on('listening', onListening);
-  })
+connectToMongo();
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
