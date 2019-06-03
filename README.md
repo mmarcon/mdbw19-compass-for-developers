@@ -11,9 +11,29 @@ After checking out the repository, run `npm install` to install the dependencies
 
 Copy `config.example.json` to `config.json` and add your secret key in there.
 
+#### Run on localhost
+
 Run MongoDB locally and with `mongoimport` import `data/weather_data.json` to a database named `mdbw19` into a collection named `weather_data`. The collection contains hourly weather observations for NYC and San Francisco from the beginning of 2012 almost to the end of 2017.
 
 At this point, run `npm start` or `npm run dev` and go to [localhost:3000](http://localhost:3000/).
+
+#### Run with Docker compose
+
+The application and the database are dockerized (intentionally, the data is not persisted in a volume). To start the deployment run:
+
+```
+docker-compose up
+```
+
+Once it's all up and running, seed the database with
+
+```
+./scripts/seed-docker-db.sh
+```
+
+Then go to [localhost:3000](http://localhost:3000/).
+
+<hr>
 
 You should see a webpage similar to the image below.
 
