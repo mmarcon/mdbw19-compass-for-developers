@@ -1,0 +1,18 @@
+version: "3"
+services:
+  mongo:
+    image: 'mongo:4.1.13'
+    ports:
+    - "27017:27017"
+    volumes:
+    - "./data:/var/data"
+    container_name: mongo
+  web:
+    environment:
+    - MONGO_HOST=mongo
+    build: .
+    ports:
+    - "3000:3000"
+    depends_on:
+    - mongo
+    container_name: web
