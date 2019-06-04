@@ -7,7 +7,9 @@
 <p><canvas id="icon" width="192" height="192"></canvas></p>
 <p>
     <small>
-        {{#if (rgt weather.temperature averageWeather.0.avg_temperature_f)}}
+        {{#if (eq averageWeather.length 0)}}
+        <strong class="from-historical">###</strong>
+        {{else if (rgt weather.temperature averageWeather.0.avg_temperature_f)}}
         <strong class="from-historical">It's warmer than usual</strong>
         {{else if (rlt weather.temperature averageWeather.0.avg_temperature_f)}}
         <strong class="from-historical">It's colder than usual</strong>
@@ -16,8 +18,13 @@
         {{/if}}
         <br>
         The average conditions for this time of the day on {{toMonth month}} {{toOrdinal day}} are
+        {{#if (eq averageWeather.length 0)}}
+        <strong><span class="from-historical condition"><span class="wi wi-thermometer"></span>###<span class="wi wi-fahrenheit"></span></span>
+            <span class="from-historical condition"><span class="wi wi-humidity"></span>###%</span></strong>
+        {{else}}
         <strong><span class="from-historical condition"><span class="wi wi-thermometer"></span>{{truncateNumber averageWeather.0.avg_temperature_f 1}}<span class="wi wi-fahrenheit"></span></span>
             <span class="from-historical condition"><span class="wi wi-humidity"></span>{{truncateNumber averageWeather.0.avg_humidity 0}}%</span></strong>
+        {{/if}}
     </small>
 </p>
 <footer>
