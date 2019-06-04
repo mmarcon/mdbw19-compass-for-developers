@@ -17,7 +17,7 @@ const connectToMongo = () => {
     app.locals.dbClient = client;
   })
   .catch(e => {
-    debug('Failed to connect to MongoDB. Trying again in 5 seconds.')
+    debug('Failed to connect to MongoDB. Trying again in 5 seconds.');
     setTimeout(connectToMongo, 5000);
   })
 };

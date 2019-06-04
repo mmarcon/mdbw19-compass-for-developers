@@ -63,4 +63,4 @@ module.exports = (hour, day, month) => [{
             $avg: '$humidity'
         }
     }
-}]
+}];
