@@ -7,11 +7,14 @@
 const app = require('../app');
 const debug = require('debug')('mdbw19-compass-for-developers:server');
 const http = require('http');
+const {mongo} = require('../config');
 const MongoClient = require('mongodb').MongoClient;
 
 const connectToMongo = () => {
+  const uri = mongo[process.env.MONGO_ENV || 'localhost'];
+  debug(`MongoDB connnection to ${uri}`);
   MongoClient
-  .connect(`mongodb://${process.env.MONGO_HOST || 'localhost'}:27017`, {useNewUrlParser: true, bufferMaxEntries: 0})
+  .connect(uri, {useNewUrlParser: true, bufferMaxEntries: 0})
   .then(client => {
     debug('Connected to MongoDB');
     app.locals.dbClient = client;
