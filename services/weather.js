@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const {darksky_api_key} = require('../config.json');
+const {darksky_api_key} = require('../config');
 const CITIES = {
     NYC: [40.730610, -73.935242]
 };
