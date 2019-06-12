@@ -9,7 +9,7 @@ aggregations with the Aggregation Pipeline Builder in Compass.
 
 After checking out the repository, run `npm install` to install the dependencies. Then go to [Darksky](https://darksky.net), create an account if you don't have one and [get your secret key](https://darksky.net/dev/account).
 
-Copy `config.example.json` to `config.json` and add your secret key in there.
+Copy `config.example.js` to `config.js` and add your secret key and environment configuration in there. You don't need to touch `mongo.localhost` and `mongo.docker` but if you want to connect to [Atlas](https://www.mongodb.com/cloud/atlas) (see below) you will need to add the Atlas [connection string](https://docs.mongodb.com/manual/reference/connection-string/) to `mongo.atlas`.
 
 #### Run on localhost
 
@@ -29,6 +29,24 @@ Once it's all up and running, seed the database with
 
 ```
 ./scripts/seed-docker-db.sh
+```
+
+Then go to [localhost:3000](http://localhost:3000/).
+
+#### Run on localhost and connect to Atlas
+
+If you have a cluster configured in Atlas, you can connect the web application on localhost to it and use it as your database. 
+
+You can seed the database in Atlas with data by running:
+
+```bash
+mongoimport --uri=<atlas connection string> --collection weather_data --file data/weather_data.json
+```
+
+Once that is done, run the web application with:
+
+```bash
+DEBUG="mdbw19-compass-for-developers:*" MONGO_ENV=atlas npm run dev
 ```
 
 Then go to [localhost:3000](http://localhost:3000/).
