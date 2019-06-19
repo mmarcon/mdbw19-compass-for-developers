@@ -27,9 +27,6 @@ module.exports = {
         const db = mongoDbClient.db(dbName);
         const collection = db.collection(viewNYCMonthlyAvgName);
         const query = require('../queries/query-monthly-averages')() || {};
-        if(Object.keys(query).length === 0) {
-            return Promise.resolve([]);
-        }
         return collection
             .find(query, {
                 maxTimeMS: 1000
